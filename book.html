@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Ride - QuickRide</title>
+  <link rel="stylesheet" href="book.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <header>
+     <h1><a href="index.html">Home</a></h1>
+  </header>
+  <h2>Fill this form to book your ride</h2>
+
+  <main class="container my-5">
+    <form class="needs-validation" onsubmit="showAlert(event)">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" required>
+        <div class="invalid-feedback">Please enter your full name.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" required>
+        <div class="invalid-feedback">Please enter a valid phone number.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="pickup" class="form-label">Pickup Location</label>
+        <input type="text" class="form-control" id="pickup" required>
+        <div class="invalid-feedback">Please enter a pickup location.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="dropoff" class="form-label">Drop-off Location</label>
+        <input type="text" class="form-control" id="dropoff" required>
+        <div class="invalid-feedback">Please enter a drop-off location.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="datetime" class="form-label">Date and Time</label>
+        <input type="datetime-local" class="form-control" id="datetime" required>
+        <div class="invalid-feedback">Please select date and time.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="cabType" class="form-label">Cab Type</label>
+        <select class="form-select" id="cabType" required>
+          <option value="" disabled selected>Select cab company</option>
+          <option value="sedan">Move</option>
+          <option value="suv">YEGO Cab</option>
+        </select>
+        <div class="invalid-feedback">Please select a cab type.</div>
+      </div>
+  
+      <button class="btn btn-primary w-100" type="submit" style="background-color: #2ecc71;">Book Now</button>
+    </form>
+  </main>
+    <script>
+
+        (() => {
+          'use strict';
+          const forms = document.querySelectorAll('.needs-validation');
+          forms.forEach(form => {
+            form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        })();
+        function showAlert(event){
+            alert("Form submitted successfully");
+        }
+      </script>
+</body>
+</html>
